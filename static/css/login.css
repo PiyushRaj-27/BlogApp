@@ -1,0 +1,45 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(216, 224, 231);
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.form{
+    width: 400px;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px black;
+}
+.text{
+    font-size: 40px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+.msg{
+    margin-bottom: 50px;
+    color: red;
+}
+input{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 10px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+#inputbtn{
+    padding: 10px;
+    border: 0px;
+    border-radius: 10px;
+}

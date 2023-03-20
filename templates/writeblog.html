@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/write.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <div class="content">
+        <div class="text">Hello {{ uname }}, Continue writing!</div>
+
+    <form action="saveblog/" method="post">
+        {% csrf_token %}
+        <label for="titlefield">Title: </label>
+        <input type="text" name="titlefield" id="titlefield"> <br>
+        <!-- <input type="text" name="bodyfield" id="bodyfield"> <br> -->
+         <textarea name="bodyfield" id="bodyfield" cols="30" rows="20"></textarea> <br>
+        <button type="submit" id="inputbtn">Save</button>
+    </form>
+    </div>
+    </div>
+</body>
+</html>

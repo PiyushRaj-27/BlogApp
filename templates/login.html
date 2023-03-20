@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <div class="form">
+        <div class="text">
+            Login
+        </div>
+        <div class="msg">
+            {{ msg }}
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="username">Username: </label>
+            <input type="text" name="username" class="signup"> <br>
+            <label for="password">password: </label>
+            <input type="password" name="password" class="signup"> <br>
+            <button type="submit" id="inputbtn">Login</button
+            </form>
+        </div>
+    </div>
+</body>
+</html>

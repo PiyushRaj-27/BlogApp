@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs Daily!</title>
+</head>
+<body>
+    <div class="content">
+    <div class="navbar">
+    <div class="logo">Hello {{ uname }}</div>
+    <div class="float1">
+        <a href ="/accounts/logout"><div class="float1btn">Logout</div></a>
+        <a href="write"><div class="float1btn">Write blog</div></a>
+    </div>
+    </div>
+    {% for story in blogs %}
+    <div class="blogDiv">
+        <div class="title"> {{story.Title}} </div>
+        <div class="body"> {{story.body |truncatewords:100}} </div>
+        <a href="/blog/write/{{ story.Title }}">
+        <div class="editbtn">
+            Edit
+        </div>
+        </a>
+    </div>
+    {% endfor %}
+    </div>
+
+</body>
+</html>

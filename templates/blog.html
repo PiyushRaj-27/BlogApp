@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs Daily!</title>
+</head>
+<body>
+    <div class="signupmodal" id="id1">
+        <div class="formcont">
+            <div class="signuptext">Sign Up</div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <label for="username">Username: </label>
+                <input type="text" name="username" class="signup"> <br>
+                <label for="email">Email: </label>
+                <input type="email" name="email" class="signup"> <br>
+                <label for="password">password: </label>
+                <input type="password" name="password" class="signup"> <br>
+
+                <button type="submit" id="inputbtn">Create account</button>
+                <button id="inputbtn" onclick="hidesignup()" type="button">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <div class="content">
+    <div class="navbar">
+    <div class="logo">Blog App</div>
+    <div class="float1">
+        {% if isuser %}
+        <a href ="/accounts/logout"><div class="float1btn">Logout</div></a>
+        <a href="myblogs"><div class="float1btn">Your blogs</div></a>
+        {% else %}
+        <div class="float1btn" onclick="showsignup()">Sign up</div>
+        <a href="/accounts/login"><div class="float1btn">Login</div></a>
+        {% endif %}
+    </div>
+    </div>
+    {% for story in blogs %}
+    <div class="blogDiv">
+        <div class="title"> {{story.Title}} <div class="auth">-{{story.author}}</div> </div>
+        <div class="body"> {{story.body |truncatewords:100}} </div>
+        <a href="view/{{ story.Title }}"><div class="viewbtn">View</div></a>
+    </div>
+    {% endfor %}
+    </div>
+
+</body>
+</html>
+
+<script>
+    function showsignup(){
+        console.log("Hello");
+        document.getElementById("id1").style.display = "block";
+    }
+    function hidesignup(){
+        document.getElementById("id1").style.display = "none";
+
+    }
+</script>
